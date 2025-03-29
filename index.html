@@ -3,10 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Dictation Site</title>
+    <title>Dictation Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        iframe {
+            width: 80%;
+            height: 450px;
+            margin: 20px;
+        }
+        textarea {
+            width: 80%;
+            height: 150px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Dictation Website!</h1>
-    <p>This is my first website hosted on GitHub Pages.</p>
+
+    <h1>Dictation Practice</h1>
+
+    <!-- YouTube video player -->
+    <iframe id="dictation-video" src="https://www.youtube.com/embed/vJwiilzpn-c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <div>
+        <textarea id="user-input" placeholder="Type what you hear..."></textarea>
+    </div>
+
+    <button onclick="checkAnswer()">Check Answer</button>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function checkAnswer() {
+            const userInput = document.getElementById('user-input').value.trim();
+            const correctText = "The correct text that you should write here"; // Replace with actual text
+
+            const resultDiv = document.getElementById('result');
+            if (userInput.toLowerCase() === correctText.toLowerCase()) {
+                resultDiv.textContent = "Correct!";
+                resultDiv.style.color = "green";
+            } else {
+                resultDiv.textContent = "Try again!";
+                resultDiv.style.color = "red";
+            }
+        }
+    </script>
+
 </body>
 </html>
